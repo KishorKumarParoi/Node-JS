@@ -18,3 +18,6 @@ console.log(x.findLast([1, 2, 3]));
 
 const kishor = 'I have solved issues of forced format document';
 console.log(kishor);
+
+const kkp = 100;
+console.log(kkp);
