@@ -10,3 +10,5 @@ for (let x of [1, 2, 3]) {
   console.log(x);
 }
 console.log(a);
+
+console.log(x.findLast([1, 2, 3]));
