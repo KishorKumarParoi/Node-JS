@@ -1,10 +1,7 @@
-// eslint-disable-next-line no-undef
 const images = document.querySelectorAll('img');
 console.log(images);
 
-// eslint-disable-next-line no-undef
 const observer = new IntersectionObserver(
-    // eslint-disable-next-line no-shadow
     (images) => {
         images.forEach((img) => {
             if (img.isIntersecting) {
