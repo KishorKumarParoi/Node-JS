@@ -1,5 +1,7 @@
-const circle = document.getElementById("circle");
+// eslint-disable-next-line no-undef
+const circle = document.getElementById('circle');
 
+// eslint-disable-next-line no-undef
 const observer = new IntersectionObserver(
     (items) => {
         items.forEach((item) => {
@@ -12,6 +14,7 @@ const observer = new IntersectionObserver(
     },
     {
         threshold: 0.8,
+        // eslint-disable-next-line comma-dangle
     }
 );
 
