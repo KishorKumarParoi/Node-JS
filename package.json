@@ -23,5 +23,14 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0"
   },
-  "type": "module"
+  "type": "module",
+   "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx src --color",
+    "format": "prettier --write 'src/**/*.{ts,tsx,scss,css,json}'",
+    "isready": "npm run format && npm run lint && npm run build"
+  }
 }

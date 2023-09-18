@@ -1,4 +1,4 @@
-// const a = 100;
+const a = 100;
 const arr = [1, 2, 3];
 const people = ['Kishor', 'Arnab', 'Soumya'];
 
