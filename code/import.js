@@ -1,3 +1,3 @@
-import x from './export.js';
+import x from './export';
 
 console.log(x);

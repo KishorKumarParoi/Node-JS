@@ -12,4 +12,5 @@ export default {
     people,
     arr,
     test,
+    a,
 };
