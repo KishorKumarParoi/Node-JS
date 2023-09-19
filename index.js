@@ -1,11 +1,11 @@
-// import http from 'http';
+import http from 'http';
 
 import Module from 'module';
 
 const arr = [1, 2, 3];
 console.log(arr);
 
-// console.log(http);
+console.log(http);
 console.log(Module);
 console.log(Module.builtinModules);
 console.log(Module.globalPaths);
