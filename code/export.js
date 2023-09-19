@@ -6,7 +6,7 @@ function test() {
     console.log('Hello World');
 }
 
-console.log(global);
+// console.log(global);s
 
 export default {
     people,
@@ -14,3 +14,5 @@ export default {
     test,
     a,
 };
+
+export const pi = 3.14;
