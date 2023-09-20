@@ -1,10 +1,11 @@
 /* eslint-disable import/extensions */
+import http from 'http';
 import { arr } from './myFirstModule.js';
 
 console.log(arr);
 
-// createServer((req, res) => {
-//     res.writeHead(200, { 'Content-Type': 'text/html' });
-//     res.write(`The date and time are currently: ${myDateTime()}`);
-//     res.end();
-// }).listen(8080);
+http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.write(`Arr : ${arr} <br>
+    URL : ${req.url}`);
+}).listen(8080);
