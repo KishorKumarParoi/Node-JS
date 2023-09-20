@@ -51,13 +51,26 @@ http.createServer((req, res) => {
         res.end();
     });
 
-    // fs.unlink('./demo1.txt', (err) => {
-    //     if (err) throw err;
-    //     console.log('File deleted!');
-    // });
+    fs.unlink('./demo1.txt', (err) => {
+        if (err) throw err;
+        console.log('File deleted!');
+    });
 
-    // fs.rename('./demo.html', './demo2.html', (err) => {
-    //     if (err) throw err;
-    //     console.log('File Renamed!');
-    // });
+    fs.rename('./demo2.html', './demo.html', (err) => {
+        if (err) throw err;
+        console.log('File Renamed!');
+    });
+
+    fs.appendFile('./demo.html', '<h1>I will get 100k dollar Job</h1>', (err, data) => {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(data);
+        res.end();
+    });
+
+    fs.readFile('./demo.html', (err, data) => {
+        if (err) throw err;
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(`Read Loudly!${data}`);
+        res.end();
+    });
 }).listen(8080);
