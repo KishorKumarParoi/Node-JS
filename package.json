@@ -11,6 +11,7 @@
   "dependencies": {
     "formidable": "^3.5.1",
     "lodash": "^4.17.21",
+    "nodemailer": "^6.9.5",
     "react": "^18.2.0",
     "upper-case": "^2.0.2",
     "uppercase": "^1.4.12"
