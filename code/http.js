@@ -1,7 +1,11 @@
 import http from 'http';
+import url from 'url';
 
 const server = http.createServer((req, res) => {
-    console.log(req.url);
+    // console.log(req.url);
+    const q = url.parse(req.url, true);
+    console.log(q);
+
     if (req.url === '/') {
         res.write('Hello World!');
         res.end();
