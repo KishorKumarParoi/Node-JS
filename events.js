@@ -1,16 +1,10 @@
-/* eslint-disable import/extensions */
-import * as total from './sayoutloud.js';
+import Person from './sayoutloud.js';
 
-console.log(total);
-// const person = new Person();
+const person = new Person();
+// console.log(person);
+// register a listener
+person.on('sayOutLoud', ({ msg, name, age }) => {
+    console.log(`I am ${name}, ${age} years old and I say ${msg}`);
+});
 
-// const hello = () => console.log('Hello World Kishor !');
-
-// // register a event
-// person.on('SayOutLoud', ({ name, age }) => {
-//     hello();
-//     console.log(`Hello ${name}, your age is ${age} !`);
-// });
-
-// person.start();
-// raise a event
+person.start();

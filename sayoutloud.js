@@ -1,13 +1,13 @@
-/* eslint-disable class-methods-use-this */
-import * as events from 'events';
+import eventEmitter from 'events';
 
-const eventEmitter = new events.EventEmitter();
-console.log(eventEmitter);
+// console.log(eventEmitter);
 
 class Person extends eventEmitter {
     start() {
-        console.log("Let's goo!!!");
-        this.emit('SayOutLoud');
+        console.log('started raising event');
+        setTimeout(() => {
+            this.emit('sayOutLoud', { msg: 'Hello World', name: 'Kishor Paroi', age: 25 });
+        }, 2000);
     }
 }
 
