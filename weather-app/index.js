@@ -7,31 +7,57 @@
  */
 
 // Dependencies
-import fs from 'fs';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import axios from 'axios';
 import http from 'http';
+import url from 'url';
+
 // App object
 const app = {};
 const port = 3000;
+const options = {
+    method: 'GET',
+    url: 'https://weatherapi-com.p.rapidapi.com/current.json',
+    params: { q: '53.1,-0.13' },
+    headers: {
+        'X-RapidAPI-Key': '748e18fa19msh0b68230c87862acp1a8fcejsnc3af3f5f0a4c',
+        'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com',
+    },
+};
+
+// Fetching Weather Data Function
+const fetchWeather = async (city, callback) => {
+    try {
+        const response = await axios.request(options);
+        console.log(response.data);
+    } catch (error) {
+        console.error(error);
+    }
+
+    http.get(url, (response) => {
+        let data = '';
+        response.on('data', (chunk) => {
+            data += chunk;
+        });
+
+        response.end('end', () => {
+            const weatherData = JSON.parse(data);
+            callback(weatherData);
+        });
+    });
+};
 
 // Create server
 app.server = http
     .createServer((req, res) => {
-        const ourReadStream = fs.createReadStream('./lib/fetch/fetch.txt');
-        const writeStream = fs.createWriteStream('./lib/fetch/write.txt', 'utf8');
-        ourReadStream.pipe(res);
-        ourReadStream.pipe(writeStream);
-        const body = [];
-        ourReadStream.on('data', (chunk) => {
-            console.log(chunk);
-            body.push(chunk);
-        });
-        ourReadStream.on('end', () => {
-            console.log('finished');
-            const parsedBody = Buffer.concat(body).toString();
-            console.log(parsedBody);
-        });
+        if (req.url === '/weather') {
+            fetchWeather('London', (weatherData) => {
+                res.end(JSON.stringify(weatherData));
+            });
+        } else {
+            res.end('Welcome to weather app');
+        }
     })
-    .listen(port);
-
-console.log(`Server is running on port ${port}`);
-console.log(app);
+    .listen(port, () => {
+        console.log(`Server is running on port ${port}`);
+    });
