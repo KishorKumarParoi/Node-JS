@@ -18,8 +18,17 @@ const port = 3000;
 app.server = http
     .createServer((req, res) => {
         const data = fetch('https://jsonplaceholder.typicode.com/posts/1/comments');
-        data.then((response) => response.json()).then((output) => console.log(output));
+        let DataToBeShown;
+        data.then((response) => response.json()).then((output) => {
+            DataToBeShown = output;
+            console.log(output);
+            // console.log(DataToBeShown);
+        });
+
+        console.log(DataToBeShown);
         const ourReadStream = fs.createReadStream('./lib/fetch/fetch.txt', 'utf-8');
+        // const outWriteStream = fs.createWriteStream('./lib/fetch/fetch.txt');
         ourReadStream.pipe(res);
+        // ourReadStream.pipe(outWriteStream);
     })
     .listen(port);
